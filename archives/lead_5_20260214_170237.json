@@ -1,0 +1,28 @@
+{
+  "type": "lead",
+  "id": 5,
+  "created_at": "2026-02-14T17:02:37.071318",
+  "payload": {
+    "user_id": 1,
+    "couverture_type": "Autre",
+    "couverture_surface_m2": 150.0,
+    "couverture_isolation": false,
+    "couverture_sarking": false,
+    "couverture_ecran": true,
+    "zinguerie_choices": [
+      "Gouttières",
+      "Tour de cheminée",
+      "Couloir",
+      "Descentes",
+      "Noues"
+    ],
+    "charpente_choices": [
+      "Extension",
+      "Autre"
+    ],
+    "contact_name": "test",
+    "contact_commune": "31400",
+    "contact_email": "test@pro.fr",
+    "contact_message": "v2++++"
+  }
+}

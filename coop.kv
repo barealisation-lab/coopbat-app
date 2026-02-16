@@ -1,0 +1,1210 @@
+ScreenManager:
+    AccueilScreen:
+    ArtisansScreen:
+    LoginScreen:
+    RegisterScreen:
+    ArtisanLoginScreen:
+    ArtisanRegisterScreen:
+    ArtisanMenuScreen:
+    MenuTravauxScreen:
+    EstimationScreen:
+    ChiffrageLotsScreen:
+    AfterSendScreen:
+    AdvancedChiffrageScreen:
+
+
+# =========================================================
+# FOND OPAQUE POUR TOUS LES CONTENUS SCROLLABLES
+# =========================================================
+<OpaqueBox@MDBoxLayout>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+# =========================================================
+# ACCUEIL
+# =========================================================
+<AccueilScreen>:
+    name: "accueil"
+
+    MDFloatLayout:
+        MDTopAppBar:
+            title: "Coop'BCZ"
+            pos_hint: {"top": 1}
+            elevation: 10
+
+        MDLabel:
+            text: "Bienvenue sur Coop'BCZ"
+            halign: "center"
+            font_style: "H5"
+            pos_hint: {"center_y": 0.78}
+
+        MDLabel:
+            text: "Association d'artisans solidaire"
+            halign: "center"
+            pos_hint: {"center_y": 0.63}
+
+        MDLabel:
+            text: "Nos actions : accompagnement des projets, optimisation des chantiers, partage des volumes de travail..."
+            halign: "center"
+            pos_hint: {"center_y": 0.50}
+
+        MDRaisedButton:
+            text: "Nous découvrir"
+            pos_hint: {"center_x": 0.5, "center_y": 0.38}
+            on_release: app.open_discover()
+
+        MDRaisedButton:
+            text: "Faire une demande de travaux"
+            pos_hint: {"center_x": 0.5, "center_y": 0.30}
+            on_release: app.start_estimation_flow()
+
+        MDRectangleFlatButton:
+            text: "Compte artisan"
+            pos_hint: {"center_x": 0.5, "center_y": 0.22}
+            on_release: app.open_artisan_account()
+
+
+# =========================================================
+# NOUS LES ARTISANS (4 cards)
+# =========================================================
+<ArtisansScreen>:
+    name: "artisans"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Nous, les artisans"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("accueil")]]
+            elevation: 10
+
+        ScrollView:
+            do_scroll_x: False
+
+            OpaqueBox:
+                orientation: "vertical"
+                padding: "16dp"
+                spacing: "16dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDCard:
+                    orientation: "vertical"
+                    radius: [16,]
+                    padding: "0dp"
+                    size_hint_y: None
+                    height: "310dp"
+
+                    FitImage:
+                        source: "images/artisan1.jpg"
+                        size_hint_y: None
+                        height: "190dp"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: "12dp"
+                        spacing: "6dp"
+                        MDLabel:
+                            text: "Artisan 1 - Couverture"
+                            font_style: "H6"
+                            adaptive_height: True
+                        MDLabel:
+                            text: "Tel: 06 00 00 00 00 | Mail: artisan1@mail.fr"
+                            theme_text_color: "Secondary"
+                            adaptive_height: True
+                        MDLabel:
+                            text: "Zone: 30 km autour de [Commune]"
+                            theme_text_color: "Secondary"
+                            adaptive_height: True
+
+                MDCard:
+                    orientation: "vertical"
+                    radius: [16,]
+                    padding: "0dp"
+                    size_hint_y: None
+                    height: "310dp"
+
+                    FitImage:
+                        source: "images/artisan2.jpg"
+                        size_hint_y: None
+                        height: "190dp"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: "12dp"
+                        spacing: "6dp"
+                        MDLabel:
+                            text: "Artisan 2 - Zinguerie"
+                            font_style: "H6"
+                            adaptive_height: True
+                        MDLabel:
+                            text: "Tel: 06 00 00 00 00 | Mail: artisan2@mail.fr"
+                            theme_text_color: "Secondary"
+                            adaptive_height: True
+                        MDLabel:
+                            text: "Zone: 40 km autour de [Commune]"
+                            theme_text_color: "Secondary"
+                            adaptive_height: True
+
+                MDCard:
+                    orientation: "vertical"
+                    radius: [16,]
+                    padding: "0dp"
+                    size_hint_y: None
+                    height: "310dp"
+
+                    FitImage:
+                        source: "images/artisan3.jpg"
+                        size_hint_y: None
+                        height: "190dp"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: "12dp"
+                        spacing: "6dp"
+                        MDLabel:
+                            text: "Artisan 3 - Charpente"
+                            font_style: "H6"
+                            adaptive_height: True
+                        MDLabel:
+                            text: "Tel: 06 00 00 00 00 | Mail: artisan3@mail.fr"
+                            theme_text_color: "Secondary"
+                            adaptive_height: True
+                        MDLabel:
+                            text: "Zone: 25 km autour de [Commune]"
+                            theme_text_color: "Secondary"
+                            adaptive_height: True
+
+                MDCard:
+                    orientation: "vertical"
+                    radius: [16,]
+                    padding: "0dp"
+                    size_hint_y: None
+                    height: "310dp"
+
+                    FitImage:
+                        source: "images/artisan4.jpg"
+                        size_hint_y: None
+                        height: "190dp"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: "12dp"
+                        spacing: "6dp"
+                        MDLabel:
+                            text: "Artisan 4 - Lot complet"
+                            font_style: "H6"
+                            adaptive_height: True
+                        MDLabel:
+                            text: "Tel: 06 00 00 00 00 | Mail: artisan4@mail.fr"
+                            theme_text_color: "Secondary"
+                            adaptive_height: True
+                        MDLabel:
+                            text: "Zone: 50 km autour de [Commune]"
+                            theme_text_color: "Secondary"
+                            adaptive_height: True
+
+
+# =========================================================
+# CONNEXION / INSCRIPTION PRO
+# =========================================================
+<LoginScreen>:
+    name: "login"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Connexion"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("accueil")]]
+            right_action_items: [["account-plus", lambda x: app.change_screen("register")]]
+            elevation: 10
+
+        OpaqueBox:
+            orientation: "vertical"
+            padding: "16dp"
+            spacing: "14dp"
+
+            MDLabel:
+                text: "Accès PRO"
+                halign: "center"
+                font_style: "H5"
+                adaptive_height: True
+
+            MDTextField:
+                id: login_email
+                hint_text: "Email"
+                mode: "rectangle"
+
+            MDTextField:
+                id: login_password
+                hint_text: "Mot de passe"
+                mode: "rectangle"
+                password: True
+
+            MDRaisedButton:
+                text: "Se connecter"
+                pos_hint: {"center_x": 0.5}
+                on_release: app.login_user()
+
+
+<RegisterScreen>:
+    name: "register"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Inscription"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("login")]]
+            elevation: 10
+
+        ScrollView:
+            do_scroll_x: False
+            OpaqueBox:
+                orientation: "vertical"
+                padding: "16dp"
+                spacing: "14dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDLabel:
+                    text: "Créer un compte PRO"
+                    halign: "center"
+                    font_style: "H5"
+                    adaptive_height: True
+
+                MDTextField:
+                    id: reg_name
+                    hint_text: "Nom / Société"
+                    mode: "rectangle"
+
+                MDTextField:
+                    id: reg_email
+                    hint_text: "Email"
+                    mode: "rectangle"
+
+                MDTextField:
+                    id: reg_password
+                    hint_text: "Mot de passe"
+                    mode: "rectangle"
+                    password: True
+
+                MDRaisedButton:
+                    text: "Créer mon compte"
+                    pos_hint: {"center_x": 0.5}
+                    on_release: app.register_user()
+
+
+# =========================================================
+# COMPTE ARTISAN (LOGIN/REGISTER)
+# =========================================================
+<ArtisanLoginScreen>:
+    name: "artisan_login"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Compte artisan"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("accueil")]]
+            elevation: 10
+
+        OpaqueBox:
+            orientation: "vertical"
+            padding: "16dp"
+            spacing: "14dp"
+
+            MDLabel:
+                text: "Connexion artisan"
+                halign: "center"
+                font_style: "H5"
+                adaptive_height: True
+
+            MDTextField:
+                id: a_login_email
+                hint_text: "Email"
+                mode: "rectangle"
+
+            MDTextField:
+                id: a_login_password
+                hint_text: "Mot de passe"
+                mode: "rectangle"
+                password: True
+
+            MDRaisedButton:
+                text: "Se connecter"
+                pos_hint: {"center_x": 0.5}
+                on_release: app.artisan_login()
+
+            MDRectangleFlatButton:
+                text: "Créer un compte artisan"
+                pos_hint: {"center_x": 0.5}
+                on_release: app.artisan_go_register()
+
+
+<ArtisanRegisterScreen>:
+    name: "artisan_register"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Créer compte artisan"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("artisan_login")]]
+            elevation: 10
+
+        ScrollView:
+            do_scroll_x: False
+
+            OpaqueBox:
+                orientation: "vertical"
+                padding: "16dp"
+                spacing: "14dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDTextField:
+                    id: a_name
+                    hint_text: "Nom / Société *"
+                    mode: "rectangle"
+
+                MDTextField:
+                    id: a_email
+                    hint_text: "Email *"
+                    mode: "rectangle"
+
+                MDTextField:
+                    id: a_phone
+                    hint_text: "Téléphone"
+                    mode: "rectangle"
+
+                MDTextField:
+                    id: a_commune
+                    hint_text: "Commune *"
+                    mode: "rectangle"
+
+                MDTextField:
+                    id: a_radius
+                    hint_text: "Zone intervention (km) (ex: 30)"
+                    mode: "rectangle"
+                    input_filter: "int"
+
+                MDTextField:
+                    id: a_zone_note
+                    hint_text: "Zone (note) (optionnel)"
+                    mode: "rectangle"
+
+                MDTextField:
+                    id: a_password
+                    hint_text: "Mot de passe *"
+                    mode: "rectangle"
+                    password: True
+
+                MDRaisedButton:
+                    text: "Créer mon compte"
+                    pos_hint: {"center_x": 0.5}
+                    on_release: app.artisan_register()
+
+
+# =========================================================
+# MENU TRAVAUX ARTISAN (LISTE DEMANDES)
+# =========================================================
+<ArtisanMenuScreen>:
+    name: "artisan_menu"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Menu Travaux (Artisan)"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("accueil")]]
+            right_action_items: [["logout", lambda x: app.artisan_logout()]]
+            elevation: 10
+
+        OpaqueBox:
+            orientation: "vertical"
+            padding: "12dp"
+            spacing: "10dp"
+
+            MDLabel:
+                text: "Demandes reçues"
+                font_style: "H6"
+                adaptive_height: True
+
+            MDRaisedButton:
+                text: "Rafraîchir"
+                pos_hint: {"center_x": 0.5}
+                on_release: root.refresh_requests()
+
+        ScrollView:
+            do_scroll_x: False
+
+            OpaqueBox:
+                id: requests_box
+                orientation: "vertical"
+                padding: "12dp"
+                spacing: "12dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+
+# =========================================================
+# NOS MÉTIERS
+# =========================================================
+<MenuTravauxScreen>:
+    name: "menu_travaux"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Nos Métiers"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("accueil")]]
+            right_action_items: [["logout", lambda x: app.logout()]]
+            elevation: 10
+
+        ScrollView:
+            do_scroll_x: False
+
+            OpaqueBox:
+                orientation: "vertical"
+                spacing: "16dp"
+                padding: "16dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDLabel:
+                    text: "Choisir vos besoins"
+                    halign: "left"
+                    font_style: "H6"
+                    adaptive_height: True
+
+                # ---- LOT COMPLET (CHIFFRAGE PRO)
+                MDCard:
+                    orientation: "vertical"
+                    ripple_behavior: True
+                    size_hint_y: None
+                    height: "260dp"
+                    radius: [16,]
+                    on_release: app.change_screen("chiffrage_lots")
+
+                    FitImage:
+                        source: "images/lot.jpg"
+                        size_hint_y: None
+                        height: "170dp"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: "12dp"
+                        spacing: "6dp"
+                        MDLabel:
+                            text: "Lot Charpente / Couverture / Zinguerie"
+                            halign: "center"
+                            font_style: "H6"
+                        MDLabel:
+                            text: "lot détaillé"
+                            halign: "center"
+                            theme_text_color: "Secondary"
+                            adaptive_height: True
+
+                # ---- CHARPENTE
+                MDCard:
+                    orientation: "vertical"
+                    ripple_behavior: True
+                    size_hint_y: None
+                    height: "260dp"
+                    radius: [16,]
+                    on_release: root.select_work("Lot Charpente")
+
+                    FitImage:
+                        source: "images/charpente.jpg"
+                        size_hint_y: None
+                        height: "170dp"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: "12dp"
+                        spacing: "6dp"
+                        MDLabel:
+                            text: "Charpente"
+                            halign: "center"
+                            font_style: "H6"
+                        MDLabel:
+                            text: "Rénovation • Extension • Sur-élévation"
+                            halign: "center"
+                            theme_text_color: "Secondary"
+                            adaptive_height: True
+
+                # ---- COUVERTURE
+                MDCard:
+                    orientation: "vertical"
+                    ripple_behavior: True
+                    size_hint_y: None
+                    height: "260dp"
+                    radius: [16,]
+                    on_release: root.select_work("Lot Couverture")
+
+                    FitImage:
+                        source: "images/couverture.jpg"
+                        size_hint_y: None
+                        height: "170dp"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: "12dp"
+                        spacing: "6dp"
+                        MDLabel:
+                            text: "Couverture"
+                            halign: "center"
+                            font_style: "H6"
+                        MDLabel:
+                            text: "Toiture • Isolation • Sarking"
+                            halign: "center"
+                            theme_text_color: "Secondary"
+                            adaptive_height: True
+
+                # ---- ZINGUERIE
+                MDCard:
+                    orientation: "vertical"
+                    ripple_behavior: True
+                    size_hint_y: None
+                    height: "260dp"
+                    radius: [16,]
+                    on_release: root.select_work("Lot Zinguerie")
+
+                    FitImage:
+                        source: "images/zinguerie.jpg"
+                        size_hint_y: None
+                        height: "170dp"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: "12dp"
+                        spacing: "6dp"
+                        MDLabel:
+                            text: "Lot Zinguerie"
+                            halign: "center"
+                            font_style: "H6"
+                        MDLabel:
+                            text: "Gouttières • Habillages • Solins • Noues"
+                            halign: "center"
+                            theme_text_color: "Secondary"
+                            adaptive_height: True
+
+
+# =========================================================
+# ESTIMATION SIMPLE (Lot individuel)
+# =========================================================
+<EstimationScreen>:
+    name: "estimation"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Choisir sa demande de travaux"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("menu_travaux")]]
+            elevation: 10
+
+        ScrollView:
+            do_scroll_x: False
+
+            OpaqueBox:
+                orientation: "vertical"
+                padding: "16dp"
+                spacing: "14dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDLabel:
+                    id: work_label
+                    text: ""
+                    halign: "center"
+                    font_style: "H6"
+                    adaptive_height: True
+
+                MDDropDownItem:
+                    id: option_item
+                    text: "Choisissez une option"
+                    on_release: root.open_option_menu()
+
+                MDTextField:
+                    id: name_field
+                    hint_text: "Votre nom"
+                    mode: "rectangle"
+
+                MDTextField:
+                    id: email_field
+                    hint_text: "Votre email"
+                    mode: "rectangle"
+
+                MDTextField:
+                    id: surface_field
+                    hint_text: "Surface estimée (m²)"
+                    mode: "rectangle"
+
+                MDTextField:
+                    id: budget_field
+                    hint_text: "Budget estimé (€)"
+                    mode: "rectangle"
+
+                MDTextField:
+                    id: message_field
+                    hint_text: "Message complémentaire"
+                    mode: "rectangle"
+                    multiline: True
+                    size_hint_y: None
+                    height: "140dp"
+
+                MDRaisedButton:
+                    text: "Envoyer ma demande"
+                    pos_hint: {"center_x": 0.5}
+                    on_release: app.submit_form()
+
+
+# =========================================================
+# CHIFFRAGE LOT COMPLET (V2++)
+# =========================================================
+<ChiffrageLotsScreen>:
+    name: "chiffrage_lots"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Détailler son lot"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("menu_travaux")]]
+            elevation: 10
+
+        ScrollView:
+            do_scroll_x: False
+
+            OpaqueBox:
+                orientation: "vertical"
+                padding: "16dp"
+                spacing: "16dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+                # ---------------------------
+                # COUVERTURE
+                # ---------------------------
+                MDCard:
+                    orientation: "vertical"
+                    radius: [16,]
+                    padding: "12dp"
+                    spacing: "10dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDLabel:
+                        text: "Couverture"
+                        font_style: "H6"
+                        adaptive_height: True
+
+                    MDDropDownItem:
+                        id: couv_type_item
+                        text: "Type de couverture"
+                        on_release: root.open_couv_menu()
+
+                    MDTextField:
+                        id: couv_surface
+                        hint_text: "Surface estimée de couverture (m²) *"
+                        mode: "rectangle"
+                        input_filter: "float"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        spacing: "8dp"
+                        adaptive_height: True
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            adaptive_height: True
+                            spacing: "10dp"
+                            MDLabel:
+                                text: "Isolation"
+                                adaptive_height: True
+                            MDSwitch:
+                                id: sw_isolation
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            adaptive_height: True
+                            spacing: "10dp"
+                            MDLabel:
+                                text: "Sarking"
+                                adaptive_height: True
+                            MDSwitch:
+                                id: sw_sarking
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            adaptive_height: True
+                            spacing: "10dp"
+                            MDLabel:
+                                text: "Écran sous-toiture"
+                                adaptive_height: True
+                            MDSwitch:
+                                id: sw_ecran
+                                active: True
+
+                # ---------------------------
+                # ZINGUERIE (services + quantités)
+                # ---------------------------
+                MDCard:
+                    orientation: "vertical"
+                    radius: [16,]
+                    padding: "12dp"
+                    spacing: "10dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDLabel:
+                        text: "Zinguerie"
+                        font_style: "H6"
+                        adaptive_height: True
+
+                    OpaqueBox:
+                        orientation: "vertical"
+                        spacing: "10dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            spacing: "10dp"
+                            adaptive_height: True
+                            MDCheckbox:
+                                id: cb_zing_gout
+                                size_hint: None, None
+                                size: "48dp", "48dp"
+                            MDLabel:
+                                text: "Gouttières (ml)"
+                                valign: "middle"
+                            MDTextField:
+                                id: tf_zing_gout
+                                hint_text: "ml"
+                                mode: "rectangle"
+                                input_filter: "float"
+                                size_hint_x: 0.35
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            spacing: "10dp"
+                            adaptive_height: True
+                            MDCheckbox:
+                                id: cb_zing_rives
+                                size_hint: None, None
+                                size: "48dp", "48dp"
+                            MDLabel:
+                                text: "Habillage rives / frontons (ml)"
+                                valign: "middle"
+                            MDTextField:
+                                id: tf_zing_rives
+                                hint_text: "ml"
+                                mode: "rectangle"
+                                input_filter: "float"
+                                size_hint_x: 0.35
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            spacing: "10dp"
+                            adaptive_height: True
+                            MDCheckbox:
+                                id: cb_zing_hab
+                                size_hint: None, None
+                                size: "48dp", "48dp"
+                            MDLabel:
+                                text: "Habillage mur (m²)"
+                                valign: "middle"
+                            MDTextField:
+                                id: tf_zing_hab
+                                hint_text: "m²"
+                                mode: "rectangle"
+                                input_filter: "float"
+                                size_hint_x: 0.35
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            spacing: "10dp"
+                            adaptive_height: True
+                            MDCheckbox:
+                                id: cb_zing_noues
+                                size_hint: None, None
+                                size: "48dp", "48dp"
+                            MDLabel:
+                                text: "Couverture zinc (m²)"
+                                valign: "middle"
+                            MDTextField:
+                                id: tf_zing_zinc
+                                hint_text: "m²"
+                                mode: "rectangle"
+                                input_filter: "float"
+                                size_hint_x: 0.35
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            spacing: "10dp"
+                            adaptive_height: True
+                            MDCheckbox:
+                                id: cb_zing_chem
+                                size_hint: None, None
+                                size: "48dp", "48dp"
+                            MDLabel:
+                                text: "Tour de cheminée (nombre)"
+                                valign: "middle"
+                            MDTextField:
+                                id: tf_zing_chem
+                                hint_text: "u"
+                                mode: "rectangle"
+                                input_filter: "int"
+                                size_hint_x: 0.35
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            spacing: "10dp"
+                            adaptive_height: True
+                            MDCheckbox:
+                                id: cb_zing_coul
+                                size_hint: None, None
+                                size: "48dp", "48dp"
+                            MDLabel:
+                                text: "Couloir (ml)"
+                                valign: "middle"
+                            MDTextField:
+                                id: tf_zing_coul
+                                hint_text: "ml"
+                                mode: "rectangle"
+                                input_filter: "float"
+                                size_hint_x: 0.35
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            spacing: "10dp"
+                            adaptive_height: True
+                            MDCheckbox:
+                                id: cb_zing_solins
+                                size_hint: None, None
+                                size: "48dp", "48dp"
+                            MDLabel:
+                                text: "Solins (ml)"
+                                valign: "middle"
+                            MDTextField:
+                                id: tf_zing_solins
+                                hint_text: "ml"
+                                mode: "rectangle"
+                                input_filter: "float"
+                                size_hint_x: 0.35
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            spacing: "10dp"
+                            adaptive_height: True
+                            MDCheckbox:
+                                id: cb_zing_desc
+                                size_hint: None, None
+                                size: "48dp", "48dp"
+                            MDLabel:
+                                text: "Descentes (ml)"
+                                valign: "middle"
+                            MDTextField:
+                                id: tf_zing_desc
+                                hint_text: "ml"
+                                mode: "rectangle"
+                                input_filter: "float"
+                                size_hint_x: 0.35
+
+                # ---------------------------
+                # CHARPENTE (même principe que couverture)
+                # ---------------------------
+                MDCard:
+                    orientation: "vertical"
+                    radius: [16,]
+                    padding: "12dp"
+                    spacing: "10dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDLabel:
+                        text: "Charpente"
+                        font_style: "H6"
+                        adaptive_height: True
+
+                    MDTextField:
+                        id: charp_surface
+                        hint_text: "Surface estimée (m²) *"
+                        mode: "rectangle"
+                        input_filter: "float"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        spacing: "10dp"
+                        adaptive_height: True
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            adaptive_height: True
+                            spacing: "10dp"
+                            MDCheckbox:
+                                id: cb_charp_reno
+                                size_hint: None, None
+                                size: "48dp","48dp"
+                            MDLabel:
+                                text: "Rénovation"
+                                valign: "middle"
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            adaptive_height: True
+                            spacing: "10dp"
+                            MDCheckbox:
+                                id: cb_charp_ext
+                                size_hint: None, None
+                                size: "48dp","48dp"
+                            MDLabel:
+                                text: "Extension"
+                                valign: "middle"
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            adaptive_height: True
+                            spacing: "10dp"
+                            MDCheckbox:
+                                id: cb_charp_sur
+                                size_hint: None, None
+                                size: "48dp","48dp"
+                            MDLabel:
+                                text: "Sur-élévation"
+                                valign: "middle"
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            adaptive_height: True
+                            spacing: "10dp"
+                            MDCheckbox:
+                                id: cb_charp_new
+                                size_hint: None, None
+                                size: "48dp","48dp"
+                            MDLabel:
+                                text: "Nouveau projet"
+                                valign: "middle"
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            adaptive_height: True
+                            spacing: "10dp"
+                            MDCheckbox:
+                                id: cb_charp_other
+                                size_hint: None, None
+                                size: "48dp","48dp"
+                            MDLabel:
+                                text: "Autre"
+                                valign: "middle"
+
+                # ---------------------------
+                # CONTACT
+                # ---------------------------
+                MDCard:
+                    orientation: "vertical"
+                    radius: [16,]
+                    padding: "12dp"
+                    spacing: "10dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDLabel:
+                        text: "Vos coordonnées"
+                        font_style: "H6"
+                        adaptive_height: True
+
+                    MDTextField:
+                        id: contact_name
+                        hint_text: "Nom *"
+                        mode: "rectangle"
+
+                    MDTextField:
+                        id: contact_commune
+                        hint_text: "Commune *"
+                        mode: "rectangle"
+
+                    MDTextField:
+                        id: contact_email
+                        hint_text: "Email *"
+                        mode: "rectangle"
+
+                    MDTextField:
+                        id: contact_message
+                        hint_text: "Message complémentaire"
+                        mode: "rectangle"
+                        multiline: True
+                        size_hint_y: None
+                        height: "120dp"
+
+                MDRaisedButton:
+                    text: "Envoyer ma demande"
+                    pos_hint: {"center_x": 0.5}
+                    on_release: app.submit_lead_request()
+
+
+# =========================================================
+# APRES ENVOI
+# =========================================================
+<AfterSendScreen>:
+    name: "after_send"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Demande envoyée"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("menu_travaux")]]
+            elevation: 10
+
+        OpaqueBox:
+            orientation: "vertical"
+            padding: "16dp"
+            spacing: "14dp"
+
+            MDLabel:
+                text: "Votre demande a bien été envoyée ✅"
+                halign: "center"
+                font_style: "H5"
+                adaptive_height: True
+
+            MDLabel:
+                text: "Vous pouvez aller plus loin pour un chiffrage détaillé."
+                halign: "center"
+                theme_text_color: "Secondary"
+                adaptive_height: True
+
+            MDRaisedButton:
+                text: "Aller plus loin"
+                pos_hint: {"center_x": 0.5}
+                on_release: app.change_screen("advanced")
+
+
+# =========================================================
+# CHIFFRAGE DETAILLE (V2++ STRUCTURE)
+# =========================================================
+<AdvancedChiffrageScreen>:
+    name: "advanced"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Chiffrage détaillé (V2++)"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("after_send")]]
+            elevation: 10
+
+        ScrollView:
+            do_scroll_x: False
+
+            OpaqueBox:
+                orientation: "vertical"
+                padding: "16dp"
+                spacing: "16dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDLabel:
+                    text: "Couverture (détaillé)"
+                    font_style: "H6"
+                    adaptive_height: True
+
+                MDCard:
+                    orientation: "vertical"
+                    radius: [16,]
+                    padding: "12dp"
+                    spacing: "10dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDLabel:
+                        text: "Ajoute ici tes menus déroulants et champs (Feuille 1 / Feuille 2)."
+                        theme_text_color: "Secondary"
+                        adaptive_height: True
+
+                MDLabel:
+                    text: "Zinguerie (détaillé)"
+                    font_style: "H6"
+                    adaptive_height: True
+
+                MDCard:
+                    orientation: "vertical"
+                    radius: [16,]
+                    padding: "12dp"
+                    spacing: "10dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDLabel:
+                        text: "Ajoute ici les lignes Zinguerie 1 / Zinguerie 2."
+                        theme_text_color: "Secondary"
+                        adaptive_height: True
+
+                MDLabel:
+                    text: "Charpente (détaillé)"
+                    font_style: "H6"
+                    adaptive_height: True
+
+                MDCard:
+                    orientation: "vertical"
+                    radius: [16,]
+                    padding: "12dp"
+                    spacing: "10dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDLabel:
+                        text: "Ajoute ici Charpente 1 / Charpente 2."
+                        theme_text_color: "Secondary"
+                        adaptive_height: True
+
+                MDLabel:
+                    text: "Contact"
+                    font_style: "H6"
+                    adaptive_height: True
+
+                MDCard:
+                    orientation: "vertical"
+                    radius: [16,]
+                    padding: "12dp"
+                    spacing: "10dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    MDTextField:
+                        id: adv_name
+                        hint_text: "Nom *"
+                        mode: "rectangle"
+
+                    MDTextField:
+                        id: adv_commune
+                        hint_text: "Commune *"
+                        mode: "rectangle"
+
+                    MDTextField:
+                        id: adv_email
+                        hint_text: "Email *"
+                        mode: "rectangle"
+
+                    MDTextField:
+                        id: adv_message
+                        hint_text: "Message"
+                        mode: "rectangle"
+                        multiline: True
+                        size_hint_y: None
+                        height: "120dp"
+
+                MDRaisedButton:
+                    text: "Demander mon chiffrage"
+                    pos_hint: {"center_x": 0.5}
+                    on_release: app.submit_advanced_request()

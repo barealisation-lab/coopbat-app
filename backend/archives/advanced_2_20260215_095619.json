@@ -1,0 +1,83 @@
+{
+  "advanced_id": 2,
+  "user_id": 1,
+  "contact": {
+    "name": "test",
+    "commune": "31600",
+    "email": "test@pro.fr"
+  },
+  "payload": {
+    "version": "V2++",
+    "couverture_lines": [
+      {
+        "category": "COUVERTURE",
+        "item_id": null,
+        "name": "Tuiles mécaniques (selon modèle)",
+        "qty": 150.0,
+        "unit": "m²"
+      },
+      {
+        "category": "COUVERTURE",
+        "item_id": null,
+        "name": "Liteaux",
+        "qty": 420.0,
+        "unit": "ml"
+      },
+      {
+        "category": "COUVERTURE",
+        "item_id": null,
+        "name": "Contre-liteaux",
+        "qty": 330.0,
+        "unit": "ml"
+      },
+      {
+        "category": "COUVERTURE",
+        "item_id": null,
+        "name": "Écran sous-toiture",
+        "qty": 150.0,
+        "unit": "m²"
+      }
+    ],
+    "zinguerie_lines": [
+      {
+        "category": "ZINGUERIE",
+        "item_id": null,
+        "name": "Gouttières (pose + fourniture)",
+        "qty": 25.0,
+        "unit": "ml"
+      },
+      {
+        "category": "ZINGUERIE",
+        "item_id": null,
+        "name": "Tour de cheminée",
+        "qty": 5.0,
+        "unit": "u"
+      }
+    ],
+    "charpente_lines": [
+      {
+        "category": "CHARPENTE",
+        "item_id": null,
+        "name": "Type de projet: Rénovation",
+        "qty": 1.0,
+        "unit": ""
+      },
+      {
+        "category": "CHARPENTE",
+        "item_id": null,
+        "name": "Bois de structure",
+        "qty": 5.25,
+        "unit": "m³"
+      },
+      {
+        "category": "CHARPENTE",
+        "item_id": null,
+        "name": "Connecteurs (sabots/équerres)",
+        "qty": 52.5,
+        "unit": "u"
+      }
+    ],
+    "message": ""
+  },
+  "created_at": "2026-02-15T09:56:19.000985"
+}

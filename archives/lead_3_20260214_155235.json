@@ -1,0 +1,24 @@
+{
+  "type": "lead",
+  "id": 3,
+  "created_at": "2026-02-14T15:52:35.673986",
+  "payload": {
+    "user_id": 1,
+    "couverture_type": "Tuile mécanique faible pente (25-35%)",
+    "couverture_surface_m2": 60.0,
+    "couverture_isolation": false,
+    "couverture_sarking": false,
+    "couverture_ecran": true,
+    "zinguerie_choices": [
+      "󰄲",
+      "󰄲"
+    ],
+    "charpente_choices": [
+      "󰄲"
+    ],
+    "contact_name": "test",
+    "contact_commune": "31600",
+    "contact_email": "test@pro.fr",
+    "contact_message": ""
+  }
+}

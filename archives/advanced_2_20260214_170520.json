@@ -1,0 +1,62 @@
+{
+  "type": "advanced",
+  "id": 2,
+  "created_at": "2026-02-14T17:05:20.748075",
+  "payload": {
+    "user_id": 1,
+    "contact_name": "test",
+    "contact_commune": "31400",
+    "contact_email": "test@pro.fr",
+    "payload": {
+      "version": "V2++",
+      "couverture_lines": [],
+      "zinguerie_lines": [
+        {
+          "category": "ZINGUERIE",
+          "item_id": null,
+          "name": "Gouttières (pose + fourniture)",
+          "qty": 60.0,
+          "unit": "ml"
+        },
+        {
+          "category": "ZINGUERIE",
+          "item_id": null,
+          "name": "Tour de cheminée",
+          "qty": 3.0,
+          "unit": "u"
+        }
+      ],
+      "charpente_lines": [
+        {
+          "category": "CHARPENTE",
+          "item_id": null,
+          "name": "Type de projet: Extension, Autre",
+          "qty": 1.0,
+          "unit": ""
+        },
+        {
+          "category": "CHARPENTE",
+          "item_id": null,
+          "name": "Bois de structure",
+          "qty": 5.25,
+          "unit": "m³"
+        },
+        {
+          "category": "CHARPENTE",
+          "item_id": null,
+          "name": "Connecteurs (sabots/équerres)",
+          "qty": 52.5,
+          "unit": "u"
+        },
+        {
+          "category": "CHARPENTE",
+          "item_id": null,
+          "name": "Contreventement (OSB/CTBX)",
+          "qty": 150.0,
+          "unit": "m²"
+        }
+      ],
+      "message": ""
+    }
+  }
+}
