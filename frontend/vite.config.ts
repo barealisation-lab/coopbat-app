@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "prompt",
-      includeAssets: ["favicon.svg", "icons/icon-192.png", "icons/icon-512.png"],
+      includeAssets: ["favicon.svg", "Public/icons/icon-192.png", "Public/icons/icon-512.png"],
       manifest: {
         name: "Coop'Bat",
         short_name: "Coop'Bat",
@@ -18,8 +18,8 @@ export default defineConfig({
         scope: "/",
         start_url: "/",
         icons: [
-          { src: "icons/icon-192.png", sizes: "192x192", type: "image/png" },
-          { src: "icons/icon-512.png", sizes: "512x512", type: "image/png" }
+          { src: "Public/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+          { src: "Public/icons/icon-512.png", sizes: "512x512", type: "image/png" }
         ]
       }
     })
