@@ -4,3 +4,5 @@ SQLAlchemy==2.0.36
 pydantic==2.10.3
 python-multipart==0.0.12
 psycopg2-binary==2.9.10
+passlib[bcrypt]==1.7.4
+bcrypt==4.1.3
